@@ -57,7 +57,7 @@
 // };
 
 // export default About;
-import React, { useState } from "react";
+import React from "react";
 // import ReactRange from "react-range";
 // import {
 //   FaReact,
