@@ -59,16 +59,16 @@
 // export default About;
 import React, { useState } from "react";
 // import ReactRange from "react-range";
-import {
-  FaReact,
-  FaNodeJs,
-  FaPython,
-  FaDatabase,
-  FaJava,
-  FaRocket,
-  FaBrain,
-} from "react-icons/fa";
-import FlipMove from "react-flip-move";
+// import {
+//   FaReact,
+//   FaNodeJs,
+//   FaPython,
+//   FaDatabase,
+//   FaJava,
+//   FaRocket,
+//   FaBrain,
+// } from "react-icons/fa";
+// import FlipMove from "react-flip-move";
 
 const About = () => {
   const [proficiencies, setProficiencies] = useState({
@@ -81,9 +81,9 @@ const About = () => {
     machineLearning: 0,
   });
 
-  const handleChange = (key, value) => {
-    setProficiencies((prev) => ({ ...prev, [key]: value }));
-  };
+  // const handleChange = (key, value) => {
+  //   setProficiencies((prev) => ({ ...prev, [key]: value }));
+  // };
 
   return (
     <div className="container mx-auto py-8 text-gray-800">
@@ -120,7 +120,7 @@ const About = () => {
       <div className="mt-8">
         <h2 className="text-xl font-semibold mb-4">Technology Proficiency</h2>
         <div className="grid grid-cols-2 gap-4">
-          <FlipMove>
+          {/* <FlipMove>
             {Object.entries(proficiencies).map(([tech, proficiency]) => (
               <div key={tech}>
                 <h3 className="text-lg font-semibold mb-2">
@@ -137,7 +137,7 @@ const About = () => {
                     ({proficiency})
                   </span>
                 </h3>
-                {/* <ReactRange
+                <ReactRange
                   step={1}
                   min={0}
                   max={10}
@@ -170,10 +170,10 @@ const About = () => {
                       }}
                     />
                   )}
-                /> */}
+                />
               </div>
             ))}
-          </FlipMove>
+          </FlipMove> */}
         </div>
       </div>
     </div>
