@@ -71,15 +71,15 @@ import React, { useState } from "react";
 // import FlipMove from "react-flip-move";
 
 const About = () => {
-  const [proficiencies, setProficiencies] = useState({
-    react: 0,
-    node: 0,
-    mongodb: 0,
-    graphql: 0,
-    java: 0,
-    python: 0,
-    machineLearning: 0,
-  });
+  // const [proficiencies, setProficiencies] = useState({
+  //   react: 0,
+  //   node: 0,
+  //   mongodb: 0,
+  //   graphql: 0,
+  //   java: 0,
+  //   python: 0,
+  //   machineLearning: 0,
+  // });
 
   // const handleChange = (key, value) => {
   //   setProficiencies((prev) => ({ ...prev, [key]: value }));
