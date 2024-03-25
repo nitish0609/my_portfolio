@@ -8,47 +8,37 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .send("your_service_id", "your_template_id", {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        from_number: "9967957406",
-        to_email: "nitishpandey234@gmail.com",
-      })
-      .then(
-        function (response) {
-          alert("Message sent successfully!");
-          console.log("SUCCESS", response);
-          setFormData({ name: "", email: "", message: "" });
-        },
-        function (error) {
-          alert("Failed to send the message. Please try again later.");
-          console.log("FAILED", error);
-        }
-      );
-  };
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
+      .then(
+        (result) => {
+          console.log("Email sent successfully:", result.text);
+          // Optionally, you can show a success message to the user
+        },
+        (error) => {
+          console.error("Email send error:", error.text);
+          // Optionally, you can show an error message to the user
+        }
+      );
+
+    // Clear form fields
+    setFormData({ name: "", email: "", message: "" });
+  };
+
   return (
-    <div className="container mx-auto p-4">
-      <h2 className="text-4xl font-extrabold text-gray-800 mb-4">Contact Me</h2>
-
-      <p className="text-lg text-gray-600">
-        Feel free to reach out to me if you have any questions or inquiries. I'd
-        love to hear from you!
-      </p>
-
+    <div className="container mx-auto py-8 px-4 text-gray-800">
+      <h1 className="text-3xl font-bold mb-6 text-center">Contact Me</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label htmlFor="name" className="block text-gray-600">
-            Name:
+          <label htmlFor="name" className="block text-lg font-semibold mb-2">
+            Name
           </label>
           <input
             type="text"
@@ -56,13 +46,13 @@ const Contact = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="w-full border rounded p-2"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             required
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="email" className="block text-gray-600">
-            Email:
+          <label htmlFor="email" className="block text-lg font-semibold mb-2">
+            Email
           </label>
           <input
             type="email"
@@ -70,27 +60,27 @@ const Contact = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border rounded p-2"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             required
           />
         </div>
         <div className="mb-4">
-          <label htmlFor="message" className="block text-gray-600">
-            Message:
+          <label htmlFor="message" className="block text-lg font-semibold mb-2">
+            Message
           </label>
           <textarea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
-            rows="4"
-            className="w-full border rounded p-2"
+            rows="6"
+            className="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
             required
-          />
+          ></textarea>
         </div>
         <button
           type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          className="bg-blue-500 text-white px-4 py-2 rounded-md w-full hover:bg-blue-600"
         >
           Send Message
         </button>
